@@ -21,7 +21,7 @@
 
 # All Sailor Moon Memories
 
-All Sailor Moon Memories は Sailor Moon Memories の各動画を一覧表示した動画を作成する試みです。Sailor Moon Memoriesは [fabzt10] (https://www.youtube.com/channel/UCi30Verb3Spu3oQiKnlmsqg) さんによって作成されたセーラームーンを題材にした幾つかの AMV(Anime Music Video) です。
+All Sailor Moon Memories は Sailor Moon Memories の各動画を一覧表示した動画を作成する試みです。Sailor Moon Memoriesは [fabzt10](https://www.youtube.com/channel/UCi30Verb3Spu3oQiKnlmsqg) さんによって作成されたセーラームーンを題材にした幾つかの AMV(Anime Music Video) です。
 
 現状では以下の３つの動画を分割して一覧表示します。
 
@@ -35,4 +35,4 @@ All Sailor Moon Memories は Sailor Moon Memories の各動画を一覧表示し
 
 [`make.sh`](make.sh) をダウンロードして、実行してください。YouTube から動画をダウンロードします。ダウンロードされた動画はカレントディレクトリの `./vidoes`, `./audios` 内に保存されます。その後、動画の作成を開始します。動画の作成(主にエンコード)には非常に時間がかかります。
 
-作成された動画はカレントディレクトリ内の `all-sailor-moon-memories.mkv` として保存されます。作成された動画の構成は、Matroska Video + H.264 + FLAC(3トラック)です。詳細は Mediainfo の[出力結果](all-sailor-moon-memories.mkv.mediainfo.txt)を参照してください。
+作成された動画はカレントディレクトリ内の `all-sailor-moon-memories.mkv` として保存されます。作成された動画の構成は、Matroska Video + H.264 + FLAC(3トラック)です。詳細は MediaInfo の[出力結果](all-sailor-moon-memories.mkv.mediainfo.txt)を参照してください。
