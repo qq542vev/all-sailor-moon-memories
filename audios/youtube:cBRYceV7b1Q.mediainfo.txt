@@ -1,0 +1,26 @@
+General
+Complete name                            : youtube:cBRYceV7b1Q
+Format                                   : WebM
+Format version                           : Version 4
+File size                                : 1.34 MiB
+Duration                                 : 1 min 33 s
+Overall bit rate                         : 120 kb/s
+Writing application                      : google/video-file
+Writing library                          : google/video-file
+FileExtension_Invalid                    : webm
+
+Audio
+ID                                       : 1
+Format                                   : Opus
+Codec ID                                 : A_OPUS
+Duration                                 : 1 min 33 s
+Channel(s)                               : 2 channels
+Channel layout                           : L R
+Sampling rate                            : 48.0 kHz
+Bit depth                                : 16 bits
+Compression mode                         : Lossy
+Language                                 : Spanish
+Default                                  : Yes
+Forced                                   : No
+
+

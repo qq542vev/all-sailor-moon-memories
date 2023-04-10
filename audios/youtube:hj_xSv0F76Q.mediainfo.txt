@@ -1,0 +1,26 @@
+General
+Complete name                            : youtube:hj_xSv0F76Q
+Format                                   : WebM
+Format version                           : Version 4
+File size                                : 1.21 MiB
+Duration                                 : 1 min 36 s
+Overall bit rate                         : 105 kb/s
+Writing application                      : google/video-file
+Writing library                          : google/video-file
+FileExtension_Invalid                    : webm
+
+Audio
+ID                                       : 1
+Format                                   : Opus
+Codec ID                                 : A_OPUS
+Duration                                 : 1 min 36 s
+Channel(s)                               : 2 channels
+Channel layout                           : L R
+Sampling rate                            : 48.0 kHz
+Bit depth                                : 16 bits
+Compression mode                         : Lossy
+Language                                 : Spanish
+Default                                  : Yes
+Forced                                   : No
+
+

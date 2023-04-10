@@ -1,0 +1,25 @@
+General
+Complete name                            : youtube:coShQEyM0ic
+Format                                   : WebM
+Format version                           : Version 4
+File size                                : 1.20 MiB
+Duration                                 : 1 min 33 s
+Overall bit rate                         : 108 kb/s
+Writing application                      : google
+Writing library                          : google
+FileExtension_Invalid                    : webm
+
+Audio
+ID                                       : 1
+Format                                   : Opus
+Codec ID                                 : A_OPUS
+Duration                                 : 1 min 33 s
+Channel(s)                               : 2 channels
+Channel layout                           : L R
+Sampling rate                            : 48.0 kHz
+Compression mode                         : Lossy
+Language                                 : English
+Default                                  : Yes
+Forced                                   : No
+
+

@@ -1,0 +1,30 @@
+General
+Complete name                            : youtube:coShQEyM0ic
+Format                                   : WebM
+Format version                           : Version 4
+File size                                : 6.41 MiB
+Duration                                 : 1 min 33 s
+Overall bit rate                         : 578 kb/s
+Frame rate                               : 30.000 FPS
+Writing application                      : google
+Writing library                          : google
+FileExtension_Invalid                    : webm
+
+Video
+ID                                       : 1
+Format                                   : VP9
+Codec ID                                 : V_VP9
+Duration                                 : 1 min 33 s
+Bit rate                                 : 548 kb/s
+Width                                    : 640 pixels
+Height                                   : 480 pixels
+Display aspect ratio                     : 4:3
+Frame rate mode                          : Constant
+Frame rate                               : 30.000 FPS
+Bits/(Pixel*Frame)                       : 0.059
+Stream size                              : 6.08 MiB (95%)
+Language                                 : English
+Default                                  : Yes
+Forced                                   : No
+
+
