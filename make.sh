@@ -8,8 +8,8 @@
 ##
 ##   id - 69fc451a-d276-4fc4-9f7c-cff01b99319b
 ##   author - <qq542vev at https://purl.org/meta/me/>
-##   version - 1.0.0
-##   date - 2023-04-09
+##   version - 1.0.1
+##   date - 2023-04-17
 ##   since - 2023-04-09
 ##   copyright - Copyright (C) 2023-2023 qq542vev. Some rights reserved.
 ##   license - <CC-BY at https://creativecommons.org/licenses/by/4.0/>
@@ -66,8 +66,8 @@ done
 ffmpeg ${videos} ${audios} \
 	-filter_complex '
 		color=s=1280x960:c=black[background];
- 		[1:v]trim=start=02.16666667:end=01\\:34.2,setpts=PTS-STARTPTS+0.3/TB[trimmed_v];
-		[4:a]atrim=start=02.16666667:end=01\\:34.2,asetpts=PTS-STARTPTS+0.3/TB[trimmed_a];
+		[1:v]trim=start=02.16666667:end=01\\:34.3,setpts=PTS-STARTPTS+0.3/TB[trimmed_v];
+		[4:a]atrim=start=02.16666667:end=01\\:34.3,asetpts=PTS-STARTPTS+0.3/TB[trimmed_a];
 		[1:v]trim=start=00:end=02,setpts=PTS-STARTPTS+7/TB[logo];
 		[background][0:v]overlay=x=0:y=0[1video];
 		[1video][trimmed_v]overlay=x=640:y=0[2video];
