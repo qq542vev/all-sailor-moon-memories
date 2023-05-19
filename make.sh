@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 ### Script: make.sh
 ##
@@ -8,8 +8,8 @@
 ##
 ##   id - 69fc451a-d276-4fc4-9f7c-cff01b99319b
 ##   author - <qq542vev at https://purl.org/meta/me/>
-##   version - 1.0.1
-##   date - 2023-05-14
+##   version - 2.0.0
+##   date - 2023-05-18
 ##   since - 2023-04-09
 ##   copyright - Copyright (C) 2023-2023 qq542vev. Some rights reserved.
 ##   license - <CC-BY at https://creativecommons.org/licenses/by/4.0/>
@@ -31,60 +31,56 @@ XPG_SUS_ENV='ON' # AIX POSIX mode
 XPG_UNIX98='OFF' # AIX UNIX 03 mode
 POSIXLY_CORRECT='1' # GNU Coreutils POSIX mode
 COMMAND_MODE='unix2003' # macOS UNIX 03 mode
+
 export 'LC_ALL' 'IFS' 'PATH' 'UNIX_STD' 'XPG_SUS_ENV' 'XPG_UNIX98' 'POSIXLY_CORRECT' 'COMMAND_MODE'
 
-readonly 'downloads=
-youtube:cBRYceV7b1Q=https://www.youtube.com/watch?v=cBRYceV7b1Q
-youtube:hj_xSv0F76Q=https://www.youtube.com/watch?v=hj_xSv0F76Q
-youtube:coShQEyM0ic=https://www.youtube.com/watch?v=coShQEyM0ic
-'
+readonly "urls=$(
+	cat <<-'__EOF__'
+	https://www.youtube.com/watch?v=cBRYceV7b1Q	youtube:cBRYceV7b1Q	copy	acopy	jpn	sailor moon memories opening 2nd version セーラームーン
+	https://www.youtube.com/watch?v=hj_xSv0F76Q	youtube:hj_xSv0F76Q	trim=start=02.16666667:end=01\\:34.3,setpts=PTS-STARTPTS+0.3/TB	atrim=start=02.16666667:end=01\\:34.3,asetpts=PTS-STARTPTS+0.3/TB	spa	Opening sailor moon MemorieS
+	https://www.youtube.com/watch?v=coShQEyM0ic	youtube:coShQEyM0ic	copy	acopy	spa	sailor moon memories opening
+	__EOF__
+)"
 readonly 'options=--abort-on-error --continue --ignore-config --no-cache-dir --retries 100'
 readonly 'format=%(extractor)s:%(id)s.%(format_id)s.%(ext)s'
+readonly 'width=640'
+readonly 'height=480'
+readonly "xy=$(awk -v "n=$(printf '%s' "${urls}" | grep -c '^')" -- 'BEGIN { s = sqrt(n); r = int(s); printf("%d", (r == s ? r : r + 1)); }')"
 
 mkdir -p -- 'videos' 'audios'
 
-for line in ${downloads}; do
-	name="${line%%=*}"
-	url="${line#*=}"
+input=()
+map=('-map' "[overlay$(printf '%s' "${urls}" | grep -c '^')]")
+metadata=('-metadata' 'title=All Sailor Moon Memories')
+filter="color=size=$((width * xy))x$((height * xy)):color=black[background];[2:v]trim=start=00:end=02,setpts=PTS-STARTPTS+7/TB[logo];[background][logo]overlay=x=640:y=480[overlay0]"
 
-	if [ '!' -f "videos/${name}" ]; then
-		yt-dlp ${options} --format 'bestvideo[width=640][height=480]' --output "videos/${format}" -- "${url}"
-		rm -fr -- "videos/${name}"
-		ln -s -- "$(yt-dlp ${options} --format 'bestvideo[width=640][height=480]' --output "${format}" --get-filename -- "${url}")" "videos/${name}"
+while IFS='	' read -r i url filename vfilter afilter language title; do
+	if [ '!' -f "videos/${filename}" ]; then
+		yt-dlp ${options} --format 'bestvideo*[width=640][height=480]' --output "videos/${format}" -- "${url}"
+
+		rm -fr -- "videos/${filename}"
+		ln -s -- "$(yt-dlp ${options} --format 'bestvideo*[width=640][height=480]' --output "${format}" --get-filename -- "${url}")" "videos/${filename}"
 	fi
 
-	if [ '!' -f "audios/${name}" ]; then
-		yt-dlp ${options} --format 'bestaudio' --output "audios/${format}" -- "${url}"
-		rm -fr -- "audios/${name}"
-		ln -s -- "$(yt-dlp ${options} --format 'bestaudio' --output "${format}" --get-filename -- "${url}")" "audios/${name}"
+	if [ '!' -f "audios/${filename}" ]; then
+		yt-dlp ${options} --format 'bestaudio*' --output "audios/${format}" -- "${url}"
+
+		rm -fr -- "audios/${filename}"
+		ln -s -- "$(yt-dlp ${options} --format 'bestaudio*' --output "${format}" --get-filename -- "${url}")" "audios/${filename}"
 	fi
 
-	videos="${videos-} -i videos/${name}"
-	audios="${audios-} -i audios/${name}"
-done
+	input+=('-i' "videos/${filename}" '-i' "audios/${filename}")
+	map+=('-map' "[audio${i}]")
+	metadata+=(
+		"-metadata:s:a:${i}" "language=${language}"
+		"-metadata:s:a:${i}" "title=${title}"
+		"-metadata:s:a:${i}" "description=Source: ${url}"
+	)
+	filter="${filter};[$((i * 2)):v]${vfilter}[video${i}];[overlay${i}][video${i}]overlay=x=$((i % xy * width)):y=$((i / xy * height))[overlay$((i + 1))];[$(((i * 2) + 1)):a]${afilter}[audio${i}]"
+done <<<"$(printf '%s\n' "${urls}" | nl -v '0' | sed -e 's/^ *//')"
 
-ffmpeg ${videos} ${audios} \
-	-filter_complex '
-		color=size=1280x960:color=black[background];
-		[1:v]trim=start=02.16666667:end=01\\:34.3,setpts=PTS-STARTPTS+0.3/TB[trimmed_v];
-		[4:a]atrim=start=02.16666667:end=01\\:34.3,asetpts=PTS-STARTPTS+0.3/TB[trimmed_a];
-		[1:v]trim=start=00:end=02,setpts=PTS-STARTPTS+7/TB[logo];
-		[background][0:v]overlay=x=0:y=0[1video];
-		[1video][trimmed_v]overlay=x=640:y=0[2video];
-		[2video][2:v]overlay=x=0:y=480[3video];
-		[3video][logo]overlay=x=640:y=480
-	' \
-	-map '3:a' -map '[trimmed_a]' -map '5:a' \
+ffmpeg \
+	"${input[@]}" -filter_complex "${filter}" "${map[@]}" "${metadata[@]}" \
 	-c:v libx264 -r 30 -fps_mode cfr -crf 0 -qp 0 -preset placebo -tune animation \
 	-c:a flac -ar 48000 -ac 2 -compression_level 12 \
-	-metadata 'title=All Sailor Moon Memories' \
-	-metadata:s:a:0 'language=jpn' \
-	-metadata:s:a:0 'title=sailor moon memories opening 2nd version セーラームーン' \
-	-metadata:s:a:0 'description=Source: https://www.youtube.com/watch?v=cBRYceV7b1Q' \
-	-metadata:s:a:1 'language=spa' \
-	-metadata:s:a:1 'title=Opening sailor moon MemorieS' \
-	-metadata:s:a:1 'description=Source: https://www.youtube.com/watch?v=hj_xSv0F76Q' \
-	-metadata:s:a:2 'language=spa' \
-	-metadata:s:a:2 'title=sailor moon memories opening' \
-	-metadata:s:a:2 'description=Source: https://www.youtube.com/watch?v=coShQEyM0ic' \
 	-to '01:33' all-sailor-moon-memories.mkv
