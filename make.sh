@@ -36,7 +36,7 @@ export 'LC_ALL' 'IFS' 'PATH' 'UNIX_STD' 'XPG_SUS_ENV' 'XPG_UNIX98' 'POSIXLY_CORR
 readonly "urls=$(
 	cat <<-'__EOF__'
 	https://www.youtube.com/watch?v=cBRYceV7b1Q	youtube:cBRYceV7b1Q	copy	acopy	jpn	sailor moon memories opening 2nd version セーラームーン
-	https://www.youtube.com/watch?v=hj_xSv0F76Q	youtube:hj_xSv0F76Q	trim=start=02.16666667:end=01\\:34.3,setpts=PTS-STARTPTS+0.3/TB	atrim=start=02.16666667:end=01\\:34.3,asetpts=PTS-STARTPTS+0.3/TB	spa	Opening sailor moon MemorieS
+	https://www.youtube.com/watch?v=hj_xSv0F76Q	youtube:hj_xSv0F76Q	trim=start=02.16666666:end=01\\:34.3,setpts=PTS-STARTPTS+0.3/TB	atrim=start=02.16666666:end=01\\:34.3,asetpts=PTS-STARTPTS+0.3/TB	spa	Opening sailor moon MemorieS
 	https://www.youtube.com/watch?v=coShQEyM0ic	youtube:coShQEyM0ic	copy	acopy	spa	sailor moon memories opening
 	__EOF__
 )"
@@ -51,7 +51,7 @@ mkdir -p -- 'videos' 'audios'
 input=()
 map=('-map' "[overlay$(printf '%s' "${urls}" | grep -c '^')]")
 metadata=('-metadata' 'title=All Sailor Moon Memories')
-filter="color=size=$((width * xy))x$((height * xy)):color=black[background];[2:v]trim=start=00:end=02,setpts=PTS-STARTPTS+7/TB[logo];[background][logo]overlay=x=640:y=480[overlay0]"
+filter="color=size=$((width * xy))x$((height * xy)):color=black:rate=30[background];[2:v]trim=start=00:end=02,setpts=PTS-STARTPTS+7/TB[logo];[background][logo]overlay=x=640:y=480[overlay0]"
 
 while IFS='	' read -r i url filename vfilter afilter language title; do
 	if [ '!' -f "videos/${filename}" ]; then
@@ -80,6 +80,6 @@ done <<<"$(printf '%s\n' "${urls}" | nl -v '0' | sed -e 's/^ *//')"
 
 ffmpeg \
 	"${input[@]}" -filter_complex "${filter}" "${map[@]}" "${metadata[@]}" \
-	-c:v libx264 -r 30 -fps_mode cfr -crf 0 -qp 0 -preset placebo -tune animation \
+	-c:v libx264 -fps_mode cfr -crf 0 -qp 0 -preset placebo -tune animation \
 	-c:a flac -ar 48000 -ac 2 -compression_level 12 \
 	-to '01:33' all-sailor-moon-memories.mkv
