@@ -40,7 +40,11 @@ readonly "urls=$(
 	https://www.youtube.com/watch?v=coShQEyM0ic	youtube:coShQEyM0ic	copy	acopy	spa	sailor moon memories opening
 	__EOF__
 )"
-readonly 'options=--abort-on-error --continue --ignore-config --no-cache-dir --retries 100'
+readonly options=(
+	'--abort-on-error' '--continue'
+	'--ignore-config' '--no-cache-dir'
+	'--retries' '100'
+)
 readonly 'format=%(extractor)s:%(id)s.%(format_id)s.%(ext)s'
 readonly 'width=640'
 readonly 'height=480'
@@ -55,17 +59,17 @@ filter="color=size=$((width * xy))x$((height * xy)):color=black:rate=30[backgrou
 
 while IFS='	' read -r i url filename vfilter afilter language title; do
 	if [ '!' -f "videos/${filename}" ]; then
-		yt-dlp ${options} --format 'bestvideo[width=640][height=480]' --output "videos/${format}" -- "${url}"
+		yt-dlp "${options[@]}" --format 'bestvideo[width=640][height=480]' --output "videos/${format}" -- "${url}"
 
 		rm -fr -- "videos/${filename}"
-		ln -s -- "$(yt-dlp ${options} --format 'bestvideo[width=640][height=480]' --output "${format}" --get-filename -- "${url}")" "videos/${filename}"
+		ln -s -- "$(yt-dlp "${options[@]}" --format 'bestvideo[width=640][height=480]' --output "${format}" --get-filename -- "${url}")" "videos/${filename}"
 	fi
 
 	if [ '!' -f "audios/${filename}" ]; then
-		yt-dlp ${options} --format 'bestaudio' --output "audios/${format}" -- "${url}"
+		yt-dlp "${options[@]}" --format 'bestaudio' --output "audios/${format}" -- "${url}"
 
 		rm -fr -- "audios/${filename}"
-		ln -s -- "$(yt-dlp ${options} --format 'bestaudio' --output "${format}" --get-filename -- "${url}")" "audios/${filename}"
+		ln -s -- "$(yt-dlp "${options[@]}" --format 'bestaudio' --output "${format}" --get-filename -- "${url}")" "audios/${filename}"
 	fi
 
 	input+=('-i' "videos/${filename}" '-i' "audios/${filename}")
