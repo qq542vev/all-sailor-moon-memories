@@ -6,8 +6,8 @@
 
 		id - 4d5beda3-572f-471f-8c96-67e994c385b9
 		author - <qq542vev at https://purl.org/meta/me/>
-		version - 1.0.1
-		date - 2023-05-04
+		version - 1.0.2
+		date - 2023-05-23
 		since - 2023-04-09
 		copyright - Copyright (C) 2023-2023 qq542vev. Some rights reserved.
 		license - <CC-BY at https://creativecommons.org/licenses/by/4.0/>
@@ -23,7 +23,7 @@
 
 [All Sailor Moon Memories](https://www.youtube.com/watch?v=mjNPCGO-ey0) は Sailor Moon Memories の各動画を一覧表示した動画を作成する試みです。Sailor Moon Memoriesは [fabzt10](https://www.youtube.com/channel/UCi30Verb3Spu3oQiKnlmsqg) さんによって作成された、セーラームーンを題材にした幾つかの AMV(Anime Music Video) です。
 
-現状では以下の３つの動画を分割して一覧表示します。
+現状では以下の3つの動画を分割して一覧表示します。
 
  * 左上 - [sailor moon memories opening 2nd version セーラームーン](https://www.youtube.com/watch?v=cBRYceV7b1Q)
  * 右上 - [Opening sailor moon MemorieS](https://www.youtube.com/watch?v=hj_xSv0F76Q)
