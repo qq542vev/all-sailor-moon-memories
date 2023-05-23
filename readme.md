@@ -35,4 +35,4 @@
 
 [`make.sh`](make.sh) をダウンロードして、実行してください。YouTube から動画をダウンロードします。ダウンロードされた動画はカレントディレクトリの `./vidoes`, `./audios` 内に保存されます。その後、動画の作成を開始します。動画の作成(主にエンコード)には非常に時間がかかります。
 
-作成された動画はカレントディレクトリ内の `all-sailor-moon-memories.mkv` として保存されます。作成された動画の構成は、Matroska Video + H.264 + FLAC(3トラック)です。詳細は MediaInfo の[出力結果](all-sailor-moon-memories.mkv.mediainfo.txt)を参照してください。
+作成された動画はカレントディレクトリ内に `all-sailor-moon-memories.mkv` として保存されます。作成された動画の構成は、Matroska Video + H.264 + FLAC(3トラック)です。詳細は MediaInfo の[出力結果](all-sailor-moon-memories.mkv.mediainfo.txt)を参照してください。
