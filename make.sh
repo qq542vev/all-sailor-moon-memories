@@ -8,8 +8,8 @@
 ##
 ##   id - 69fc451a-d276-4fc4-9f7c-cff01b99319b
 ##   author - <qq542vev at https://purl.org/meta/me/>
-##   version - 2.0.0
-##   date - 2023-05-18
+##   version - 2.0.1
+##   date - 2023-05-23
 ##   since - 2023-04-09
 ##   copyright - Copyright (C) 2023-2023 qq542vev. Some rights reserved.
 ##   license - <CC-BY at https://creativecommons.org/licenses/by/4.0/>
@@ -55,17 +55,17 @@ filter="color=size=$((width * xy))x$((height * xy)):color=black:rate=30[backgrou
 
 while IFS='	' read -r i url filename vfilter afilter language title; do
 	if [ '!' -f "videos/${filename}" ]; then
-		yt-dlp ${options} --format 'bestvideo*[width=640][height=480]' --output "videos/${format}" -- "${url}"
+		yt-dlp ${options} --format 'bestvideo[width=640][height=480]' --output "videos/${format}" -- "${url}"
 
 		rm -fr -- "videos/${filename}"
-		ln -s -- "$(yt-dlp ${options} --format 'bestvideo*[width=640][height=480]' --output "${format}" --get-filename -- "${url}")" "videos/${filename}"
+		ln -s -- "$(yt-dlp ${options} --format 'bestvideo[width=640][height=480]' --output "${format}" --get-filename -- "${url}")" "videos/${filename}"
 	fi
 
 	if [ '!' -f "audios/${filename}" ]; then
-		yt-dlp ${options} --format 'bestaudio*' --output "audios/${format}" -- "${url}"
+		yt-dlp ${options} --format 'bestaudio' --output "audios/${format}" -- "${url}"
 
 		rm -fr -- "audios/${filename}"
-		ln -s -- "$(yt-dlp ${options} --format 'bestaudio*' --output "${format}" --get-filename -- "${url}")" "audios/${filename}"
+		ln -s -- "$(yt-dlp ${options} --format 'bestaudio' --output "${format}" --get-filename -- "${url}")" "audios/${filename}"
 	fi
 
 	input+=('-i' "videos/${filename}" '-i' "audios/${filename}")
