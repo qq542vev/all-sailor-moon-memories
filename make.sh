@@ -62,14 +62,14 @@ while IFS='	' read -r i url filename vfilter afilter language title; do
 		yt-dlp "${options[@]}" --format 'bestvideo[width=640][height=480]' --output "videos/${format}" -- "${url}"
 
 		rm -fr -- "videos/${filename}"
-		ln -s -- "$(yt-dlp "${options[@]}" --format 'bestvideo[width=640][height=480]' --output "${format}" --get-filename -- "${url}")" "videos/${filename}"
+		ln -s -- "$(yt-dlp "${options[@]}" --format 'bestvideo[width=640][height=480]' --print "${format}" -- "${url}")" "videos/${filename}"
 	fi
 
 	if [ '!' -f "audios/${filename}" ]; then
 		yt-dlp "${options[@]}" --format 'bestaudio' --output "audios/${format}" -- "${url}"
 
 		rm -fr -- "audios/${filename}"
-		ln -s -- "$(yt-dlp "${options[@]}" --format 'bestaudio' --output "${format}" --get-filename -- "${url}")" "audios/${filename}"
+		ln -s -- "$(yt-dlp "${options[@]}" --format 'bestaudio' --print "${format}" -- "${url}")" "audios/${filename}"
 	fi
 
 	input+=('-i' "videos/${filename}" '-i' "audios/${filename}")
