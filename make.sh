@@ -86,4 +86,4 @@ ffmpeg \
 	"${input[@]}" -filter_complex "${filter}" "${map[@]}" "${metadata[@]}" \
 	-c:v libx264 -fps_mode cfr -crf 0 -qp 0 -preset placebo -tune animation \
 	-c:a flac -ar 48000 -ac 2 -compression_level 12 \
-	-to '01:33' all-sailor-moon-memories.mkv
+	-to '01:33' 'all-sailor-moon-memories.mkv'
