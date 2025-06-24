@@ -1,22 +1,22 @@
-<!-- Document: readme.md
+<!-- Document: README.md
 
-	All Sailor Moon Memories のマニュアル
+All Sailor Moon Memoriesのマニュアル。
 
-	Metadata:
+Metadata:
 
-		id - 4d5beda3-572f-471f-8c96-67e994c385b9
-		author - <qq542vev at https://purl.org/meta/me/>
-		version - 1.0.2
-		date - 2023-05-23
-		since - 2023-04-09
-		copyright - Copyright (C) 2023-2023 qq542vev. Some rights reserved.
-		license - <CC-BY at https://creativecommons.org/licenses/by/4.0/>
-		package - all-sailor-moon-memories
+  id - 4d5beda3-572f-471f-8c96-67e994c385b9
+  author - <qq542vev at https://purl.org/meta/me/>
+  version - 1.0.2
+  created - 2023-04-09
+  modified - 2025-06-25
+  copyright - Copyright (C) 2023-2025 qq542vev. Some rights reserved.
+  license - <CC-BY-4.0 at https://creativecommons.org/licenses/by/4.0/>
+  conforms-to - <https://spec.commonmark.org/current/>
 
-	See Also:
+See Also:
 
-		* <Project homepage at https://github.com/qq542vev/all-sailor-moon-memories>
-		* <Bag report at https://github.com/qq542vev/all-sailor-moon-memories/issues>
+  * <Project homepage at https://github.com/qq542vev/all-sailor-moon-memories>
+  * <Bag report at https://github.com/qq542vev/all-sailor-moon-memories/issues>
 -->
 
 # All Sailor Moon Memories
