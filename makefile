@@ -45,7 +45,8 @@ VERSION = 1.0.0
 
 MAIN_FILE = all-sailor-moon-memories.mkv
 ID = cBRYceV7b1Q hj_xSv0F76Q coShQEyM0ic
-VIDEO_FILE = $(ID:%=video/%.mkv)
+VIDEO_DIR = videos
+VIDEO_FILE = $(ID:%=$(VIDEO_DIR)/%.mkv)
 YTDLP = yt-dlp --abort-on-error --continue --ignore-config --no-cache-dir --retries 100 --merge-output-format mkv --write-info-json
 YOUTUBE_URL = https://www.youtube.com/watch?v=
 
@@ -103,7 +104,7 @@ run: $(MAIN_FILE)
 # =====
 
 clean:
-	rm -rf $(MAIN_FILE) $(MAIN_FILE:.mkv=.txt) video
+	rm -rf $(MAIN_FILE) $(MAIN_FILE:.mkv=.txt) $(VIDEO_DIR)
 
 rebuild: clean
 	$(MAKE)
