@@ -92,7 +92,7 @@ $(VIDEO_FILE):
 infofile: $(MAIN_FILE:.mkv=.txt) $(VIDEO_FILE:.mkv=.txt)
 	
 .mkv.txt:
-	mediainfo '$(<)' >'$(@)'
+	mediainfo -- '$(<)' >'$(@)'
 
 # Run
 # ===
