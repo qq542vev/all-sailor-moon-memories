@@ -1,0 +1,9 @@
+#!/usr/bin/docker-compose -f
+
+name: all-sailor-moon-memories
+services:
+  make:
+    build: .
+    entrypoint: "make"
+    volumes:
+      - .:/work
