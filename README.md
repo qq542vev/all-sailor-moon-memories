@@ -6,9 +6,9 @@ Metadata:
 
   id - 4d5beda3-572f-471f-8c96-67e994c385b9
   author - <qq542vev at https://purl.org/meta/me/>
-  version - 1.0.2
+  version - 1.0.3
   created - 2023-04-09
-  modified - 2025-06-25
+  modified - 2025-06-26
   copyright - Copyright (C) 2023-2025 qq542vev. Some rights reserved.
   license - <CC-BY-4.0 at https://creativecommons.org/licenses/by/4.0/>
   conforms-to - <https://spec.commonmark.org/current/>
@@ -21,7 +21,7 @@ See Also:
 
 # All Sailor Moon Memories
 
-[All Sailor Moon Memories](https://www.youtube.com/watch?v=mjNPCGO-ey0) は Sailor Moon Memories の各動画を一覧表示した動画を作成する試みです。Sailor Moon Memoriesは [fabzt10](https://www.youtube.com/channel/UCi30Verb3Spu3oQiKnlmsqg) さんによって作成された、セーラームーンを題材にした幾つかの AMV(Anime Music Video) です。
+[All Sailor Moon Memories](https://www.youtube.com/watch?v=mjNPCGO-ey0)はSailor Moon Memoriesの各動画を一覧表示した動画を作成する試みです。Sailor Moon Memoriesは[fabzt10](https://www.youtube.com/channel/UCi30Verb3Spu3oQiKnlmsqg)さんによって作成された、セーラームーンを題材にした幾つかのAMV(Anime Music Video)です。
 
 現状では以下の3つの動画を分割して一覧表示します。
 
@@ -31,8 +31,8 @@ See Also:
 
 # 動画を作成する
 
-動画を作成するにはご使用のコンピューターに [yt-dlp](https://github.com/yt-dlp/yt-dlp) と [FFmpeg](https://ffmpeg.org/) がインストールされている必要があります。可能な限り最新版を使用してください。2023年04月09日現在、yt-dlp は [2023.03.04](https://github.com/yt-dlp/yt-dlp/releases/tag/2023.03.04)、FFmpeg は [5.1.1-static](https://ffmpeg.org/download.html) での組み合わせで動作することを確認しています。
+動画を作成するにはご使用のコンピューターに[yt-dlp](https://github.com/yt-dlp/yt-dlp) と [FFmpeg](https://ffmpeg.org/) がインストールされている必要があります。可能な限り最新版を使用してください。2023年04月09日現在、yt-dlpは[2023.03.04](https://github.com/yt-dlp/yt-dlp/releases/tag/2023.03.04)、FFmpegは[5.1.1-static](https://ffmpeg.org/download.html)での組み合わせで動作することを確認しています。
 
-[`make.sh`](make.sh) をダウンロードして、実行してください。YouTube から動画と音声をダウンロードします。ダウンロードされた動画と音声はカレントディレクトリの `./vidoes`, `./audios` 内に保存されます。その後、動画の作成を開始します。動画の作成(主にエンコード)には非常に時間がかかります。
+[`makefile`](makefile) をダウンロードして、実行してください。YouTubeから動画をダウンロードします。ダウンロードされた動画はカレントディレクトリの`./vidoes`内に保存されます。その後、動画の作成を開始します。動画の作成(主にエンコード)には非常に時間がかかります。
 
-作成された動画はカレントディレクトリ内に `all-sailor-moon-memories.mkv` として保存されます。作成された動画の構成は、Matroska Video + H.264 + FLAC(3トラック)です。詳細は MediaInfo の[出力結果](all-sailor-moon-memories.mkv.mediainfo.txt)を参照してください。
+作成された動画はカレントディレクトリ内に`all-sailor-moon-memories.mkv`として保存されます。作成された動画の構成は、Matroska Video + H.264 + 音声(3トラック)です。詳細は MediaInfoの[出力結果](all-sailor-moon-memories.txt)を参照してください。
