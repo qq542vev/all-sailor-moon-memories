@@ -1,0 +1,52 @@
+General
+Unique ID                                : 159513496441652249725625245500364612912 (0x78012E932AB91BB76217C7AE9678E530)
+Complete name                            : video/hj_xSv0F76Q.mkv
+Format                                   : Matroska
+Format version                           : Version 4
+File size                                : 9.19 MiB
+Duration                                 : 1 min 36 s
+Overall bit rate                         : 798 kb/s
+Frame rate                               : 30.000 FPS
+Writing application                      : Lavf58.76.100
+Writing library                          : Lavf58.76.100
+ErrorDetectionType                       : Per level 1
+
+Video
+ID                                       : 1
+Format                                   : AVC
+Format/Info                              : Advanced Video Codec
+Format profile                           : Main@L3
+Format settings                          : CABAC / 3 Ref Frames
+Format settings, CABAC                   : Yes
+Format settings, Reference frames        : 3 frames
+Codec ID                                 : V_MPEG4/ISO/AVC
+Duration                                 : 1 min 36 s
+Width                                    : 640 pixels
+Height                                   : 480 pixels
+Display aspect ratio                     : 4:3
+Frame rate mode                          : Constant
+Frame rate                               : 30.000 FPS
+Color space                              : YUV
+Chroma subsampling                       : 4:2:0
+Bit depth                                : 8 bits
+Scan type                                : Progressive
+Title                                    : ISO Media file produced by Google Inc.
+Default                                  : Yes
+Forced                                   : No
+VENDOR_ID                                : [0][0][0][0]
+
+Audio
+ID                                       : 2
+Format                                   : Opus
+Codec ID                                 : A_OPUS
+Duration                                 : 1 min 36 s
+Channel(s)                               : 2 channels
+Channel layout                           : L R
+Sampling rate                            : 48.0 kHz
+Bit depth                                : 32 bits
+Compression mode                         : Lossy
+Language                                 : Spanish
+Default                                  : Yes
+Forced                                   : No
+
+

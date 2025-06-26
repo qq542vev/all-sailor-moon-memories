@@ -1,0 +1,92 @@
+General
+Unique ID                                : 4362005831810937490728130908410586091 (0x348177DE7AD4012AA6C1FDA10D3A3EB)
+Complete name                            : all-sailor-moon-memories.mkv
+Format                                   : Matroska
+Format version                           : Version 4
+File size                                : 372 MiB
+Duration                                 : 1 min 33 s
+Overall bit rate mode                    : Variable
+Overall bit rate                         : 33.5 Mb/s
+Frame rate                               : 30.000 FPS
+Movie name                               : All Sailor Moon Memories
+Writing application                      : Lavf59.27.100
+Writing library                          : Lavf59.27.100
+ErrorDetectionType                       : Per level 1
+
+Video
+ID                                       : 1
+Format                                   : AVC
+Format/Info                              : Advanced Video Codec
+Format profile                           : High 4:4:4 Predictive@L5
+Format settings                          : CABAC / 16 Ref Frames
+Format settings, CABAC                   : Yes
+Format settings, Reference frames        : 16 frames
+Codec ID                                 : V_MPEG4/ISO/AVC
+Duration                                 : 1 min 33 s
+Width                                    : 1 280 pixels
+Height                                   : 960 pixels
+Display aspect ratio                     : 4:3
+Frame rate mode                          : Constant
+Frame rate                               : 30.000 FPS
+Color space                              : YUV
+Chroma subsampling                       : 4:2:0
+Bit depth                                : 8 bits
+Scan type                                : Progressive
+Writing library                          : x264 core 164 r3098 7628a56
+Encoding settings                        : cabac=1 / ref=16 / deblock=1:1:1 / analyse=0x3:0x133 / me=esa / subme=9 / psy=0 / mixed_ref=1 / me_range=24 / chroma_me=1 / trellis=0 / 8x8dct=1 / cqm=0 / deadzone=21,11 / fast_pskip=0 / chroma_qp_offset=0 / threads=3 / lookahead_threads=1 / sliced_threads=0 / nr=0 / decimate=1 / interlaced=0 / bluray_compat=0 / constrained_intra=0 / bframes=0 / weightp=2 / keyint=250 / keyint_min=25 / scenecut=40 / intra_refresh=0 / rc=cqp / mbtree=0 / qp=0
+Default                                  : No
+Forced                                   : No
+
+Audio #1
+ID                                       : 2
+Format                                   : Opus
+Codec ID                                 : A_OPUS
+Duration                                 : 1 min 33 s
+Channel(s)                               : 2 channels
+Channel layout                           : L R
+Sampling rate                            : 48.0 kHz
+Bit depth                                : 32 bits
+Compression mode                         : Lossy
+Title                                    : sailor moon memories opening 2nd version セーラームーン
+Language                                 : Japanese
+Default                                  : Yes
+Forced                                   : No
+
+Audio #2
+ID                                       : 3
+Format                                   : FLAC
+Format/Info                              : Free Lossless Audio Codec
+Codec ID                                 : A_FLAC
+Duration                                 : 1 min 32 s
+Bit rate mode                            : Variable
+Channel(s)                               : 2 channels
+Channel layout                           : L R
+Sampling rate                            : 48.0 kHz
+Bit depth                                : 24 bits
+Compression mode                         : Lossless
+Delay relative to video                  : 300 ms
+Title                                    : Opening sailor moon MemorieS
+Writing library                          : Lavc59.37.100 flac
+Language                                 : Spanish
+Default                                  : No
+Forced                                   : No
+MD5 of the unencoded content             : 851E9BABC8DA166305BF77490BC4D475
+
+Audio #3
+ID                                       : 4
+Format                                   : AAC LC
+Format/Info                              : Advanced Audio Codec Low Complexity
+Codec ID                                 : A_AAC-2
+Duration                                 : 1 min 33 s
+Channel(s)                               : 2 channels
+Channel layout                           : L R
+Sampling rate                            : 44.1 kHz
+Frame rate                               : 43.066 FPS (1024 SPF)
+Compression mode                         : Lossy
+Title                                    : sailor moon memories opening / ISO Media file produced by Google Inc.
+Language                                 : Spanish
+Default                                  : Yes
+Forced                                   : No
+VENDOR_ID                                : [0][0][0][0]
+
+
