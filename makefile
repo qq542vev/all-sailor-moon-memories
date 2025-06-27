@@ -63,7 +63,7 @@ all: $(MAIN_FILE)
 # -----
 
 $(MAIN_FILE): $(VIDEO_FILE)
-	 $(FFMPEG) $(^:%=-i %) \
+	 $(FFMPEG) $(^:%=-i %) $(FFMPEG_OPT) \
 		-filter_complex " \
 			color=size=1280x960:color=black:rate=30[bg]; \
 			[1:v]trim=start=00:end=02,setpts=PTS-STARTPTS+7/TB[logo]; \
@@ -83,11 +83,11 @@ $(MAIN_FILE): $(VIDEO_FILE)
 		-metadata:s:a:2 'title=sailor moon memories opening' \
 		-metadata:s:a:2 'language=spa' \
 		-c:a:0 copy -c:a:2 copy \
-		-to '01:33' $(FFMPEG_OPT) -- '$(@)'
+		-to '01:33' -- '$(@)'
 
 $(VIDEO_FILE):
 	mkdir -p -- '$(@D)'
-	$(YTDLP) -f 'bestvideo[width=640][height=480]+bestaudio' -o '$(@)' $(YTDLP_OPT) -- '$(YOUTUBE_URL)$(@F:.mkv=)'
+	$(YTDLP) $(YTDLP_OPT) -f 'bestvideo[width=640][height=480]+bestaudio' -o '$(@)' -- '$(YOUTUBE_URL)$(@F:.mkv=)'
 
 # Infofile
 # --------
