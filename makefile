@@ -16,7 +16,7 @@
 ##   author - <qq542vev at https://purl.org/meta/me/>
 ##   version - 1.0.0
 ##   created - 2024-06-23
-##   modified - 2025-06-26
+##   modified - 2025-06-27
 ##   copyright - Copyright (C) 2025-2025 qq542vev. Some rights reserved.
 ##   license - <CC-BY-4.0 at https://creativecommons.org/licenses/by/4.0/>
 ##   depends - echo, ffmpeg, mediainfo, xdg-open, yt-dlp
@@ -47,8 +47,12 @@ MAIN_FILE = all-sailor-moon-memories.mkv
 ID = cBRYceV7b1Q hj_xSv0F76Q coShQEyM0ic
 VIDEO_DIR = videos
 VIDEO_FILE = $(ID:%=$(VIDEO_DIR)/%.mkv)
-YTDLP = yt-dlp --abort-on-error --continue --ignore-config --no-cache-dir --retries 100 --merge-output-format mkv --write-info-json
 YOUTUBE_URL = https://www.youtube.com/watch?v=
+
+YTDLP = yt-dlp
+YTDLP_OPT = --abort-on-error --continue --ignore-config --no-cache-dir --retries 100 --merge-output-format mkv --write-info-json
+FFMPEG = ffmpeg
+FFMPEG_OPT = -hide_banner -c:v libx264 -fps_mode cfr -crf 0 -qp 0 -preset placebo -tune animation -c:a flac -ar 48000 -ac 2 -compression_level 12
 
 # Build
 # =====
@@ -58,8 +62,8 @@ all: $(MAIN_FILE)
 # Video
 # -----
 
-MAIN_FILE: $(VIDEO_FILE)
-	ffmpeg $(^:%=-i %) \
+$(MAIN_FILE): $(VIDEO_FILE)
+	 $(FFMPEG) $(^:%=-i %) \
 		-filter_complex " \
 			color=size=1280x960:color=black:rate=30[bg]; \
 			[1:v]trim=start=00:end=02,setpts=PTS-STARTPTS+7/TB[logo]; \
@@ -78,13 +82,12 @@ MAIN_FILE: $(VIDEO_FILE)
 		-metadata:s:a:1 'language=spa' \
 		-metadata:s:a:2 'title=sailor moon memories opening' \
 		-metadata:s:a:2 'language=spa' \
-		-c:v:0 libx264 -fps_mode cfr -crf 0 -qp 0 -preset placebo -tune animation \
-		-c:a:0 copy -c:a:1 flac -c:a:2 copy -ar 48000 -ac 2 -compression_level 12 \
-		-to '01:33' -hide_banner -- '$(@)'
+		-c:a:0 copy -c:a:2 copy \
+		-to '01:33' $(FFMPEG_OPT) -- '$(@)'
 
 $(VIDEO_FILE):
 	mkdir -p -- '$(@D)'
-	$(YTDLP) -f bestvideo[width=640][height=480]+bestaudio -o '$(@)' -- '$(YOUTUBE_URL)$(@F:.mkv=)'
+	$(YTDLP) -f 'bestvideo[width=640][height=480]+bestaudio' -o '$(@)' $(YTDLP_OPT) -- '$(YOUTUBE_URL)$(@F:.mkv=)'
 
 # Infofile
 # --------
@@ -119,7 +122,10 @@ help:
 	echo '  make [OPTION...] [MACRO=VALUE...] [TARGET...]'
 	echo
 	echo 'MACRO:'
-	echo '  YTDLP yt-dlpのパス。'
+	echo '  YTDLP      yt-dlpのパス。'
+	echo '  YTDLP_OPT  yt-dlpのオプション。'
+	echo '  FFMPEG     ffmpegのパス。'
+	echo '  FFMPEG_OPT ffmpegのオプション。'
 	echo
 	echo 'TARGET:'
 	echo '  all     全てのファイルを作成する。'
