@@ -31,7 +31,7 @@ See Also:
 
 # 動画を作成する
 
-動画を作成するにはご使用のコンピューターに[yt-dlp](https://github.com/yt-dlp/yt-dlp) と [FFmpeg](https://ffmpeg.org/) がインストールされている必要があります。可能な限り最新版を使用してください。2023年04月09日現在、yt-dlpは[2023.03.04](https://github.com/yt-dlp/yt-dlp/releases/tag/2023.03.04)、FFmpegは[5.1.1-static](https://ffmpeg.org/download.html)での組み合わせで動作することを確認しています。
+動画を作成するにはご使用のコンピューターに[yt-dlp](https://github.com/yt-dlp/yt-dlp) と [FFmpeg](https://ffmpeg.org/) がインストールされている必要があります。可能な限り最新版を使用してください。2025年06月26日現在、yt-dlpは[2025.06.25](https://github.com/yt-dlp/yt-dlp/releases/tag/2025.06.25)、FFmpegは[7.1.1-1+b1](https://ffmpeg.org/download.html)での組み合わせで動作することを確認しています。
 
 [`makefile`](makefile) をダウンロードして、実行してください。YouTubeから動画をダウンロードします。ダウンロードされた動画はカレントディレクトリの`./vidoes`内に保存されます。その後、動画の作成を開始します。動画の作成(主にエンコード)には非常に時間がかかります。
 
