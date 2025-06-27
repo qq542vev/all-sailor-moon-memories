@@ -1,14 +1,14 @@
 General
-Unique ID                                : 40316963061478631123727361825653720276 (0x1E54C3BF9F7FAF1E66549BFFD8B104D4)
-Complete name                            : video/cBRYceV7b1Q.mkv
+Unique ID                                : 75714787546253014578357440588658829116 (0x38F6233D7A47EB790D52D83A1CD8E73C)
+Complete name                            : videos/cBRYceV7b1Q.mkv
 Format                                   : Matroska
 Format version                           : Version 4
 File size                                : 9.57 MiB
 Duration                                 : 1 min 33 s
 Overall bit rate                         : 855 kb/s
 Frame rate                               : 30.000 FPS
-Writing application                      : Lavf58.76.100
-Writing library                          : Lavf58.76.100
+Writing application                      : Lavf61.7.100
+Writing library                          : Lavf61.7.100
 ErrorDetectionType                       : Per level 1
 
 Video
@@ -50,6 +50,7 @@ Channel layout                           : L R
 Sampling rate                            : 48.0 kHz
 Bit depth                                : 32 bits
 Compression mode                         : Lossy
+Delay relative to video                  : 7 ms
 Language                                 : Spanish
 Default                                  : Yes
 Forced                                   : No

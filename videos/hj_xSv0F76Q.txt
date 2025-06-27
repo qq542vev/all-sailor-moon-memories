@@ -1,14 +1,14 @@
 General
-Unique ID                                : 159513496441652249725625245500364612912 (0x78012E932AB91BB76217C7AE9678E530)
-Complete name                            : video/hj_xSv0F76Q.mkv
+Unique ID                                : 75953898719269764952225756986028056750 (0x39243054C7AC30392CAFA5C38423E0AE)
+Complete name                            : videos/hj_xSv0F76Q.mkv
 Format                                   : Matroska
 Format version                           : Version 4
 File size                                : 9.19 MiB
 Duration                                 : 1 min 36 s
 Overall bit rate                         : 798 kb/s
 Frame rate                               : 30.000 FPS
-Writing application                      : Lavf58.76.100
-Writing library                          : Lavf58.76.100
+Writing application                      : Lavf61.7.100
+Writing library                          : Lavf61.7.100
 ErrorDetectionType                       : Per level 1
 
 Video
@@ -45,6 +45,7 @@ Channel layout                           : L R
 Sampling rate                            : 48.0 kHz
 Bit depth                                : 32 bits
 Compression mode                         : Lossy
+Delay relative to video                  : 7 ms
 Language                                 : Spanish
 Default                                  : Yes
 Forced                                   : No
